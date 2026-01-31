@@ -112,7 +112,7 @@ favicon_ico: "assets/favicon.svg"
 footer_content: >-
   Copyright &copy; 2026 PLACEHOLDER_ORG_NAME.
   Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
-  Template based on guidelines from <a href="https://github.com/kontent-ai/os-guidelines">Kontent.ai</a>.
+  Template based on guidelines from <a href="https://github.com/kontent-ai/kontent-ai.github.io">Kontent.ai</a>.
 
 # ==============================================================================
 # THEME CONFIGURATION

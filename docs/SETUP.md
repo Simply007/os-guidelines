@@ -31,7 +31,19 @@ Before you begin, ensure you have:
 
 1. Navigate to `docs/_config.yml` in your new repository
 2. Click the **pencil icon** to edit the file
-3. Update the `organization` block with your details:
+3. **First, configure the site URL settings** (see [URL Configuration](#url-configuration) below for details):
+
+```yaml
+# For GitHub Pages project site (username.github.io/repo-name/)
+baseurl: "/your-repo-name"              # Replace with YOUR repository name
+url: "https://username.github.io"       # Replace with YOUR GitHub username/org
+
+# For custom domain at root, use:
+# baseurl: ""
+# url: "https://yourdomain.com"
+```
+
+4. Update the `organization` block with your details:
 
 ```yaml
 organization:
@@ -43,7 +55,7 @@ organization:
   docs_url: "https://docs.acme.com"           # (Optional) Product documentation URL
 ```
 
-4. Update the `branding` block:
+5. Update the `branding` block:
 
 ```yaml
 branding:
@@ -55,7 +67,7 @@ branding:
   accent_color: "#1A1A1D"                     # Dark backgrounds/borders (hex)
 ```
 
-5. (Optional) Update the `social` block:
+6. (Optional) Update the `social` block:
 
 ```yaml
 social:
@@ -64,7 +76,7 @@ social:
   stackoverflow_tag: "acme"                   # Stack Overflow tag
 ```
 
-6. **Commit changes** directly to the `main` branch
+7. **Commit changes** directly to the `main` branch
 
 ### Step 3: Replace Placeholder Assets (5 minutes)
 
@@ -129,7 +141,139 @@ git push origin main
 
 ---
 
+## URL Configuration
+
+### Understanding baseurl
+
+The `baseurl` setting is **critical** for GitHub Pages to load assets (CSS, JavaScript, images) correctly. Different deployment scenarios require different configurations:
+
+#### Scenario 1: GitHub Pages Project Site (Most Common)
+
+Your site URL: `https://username.github.io/repo-name/`
+
+**Configuration:**
+```yaml
+baseurl: "/repo-name"                    # Your repository name with leading slash
+url: "https://username.github.io"        # Your GitHub Pages domain
+```
+
+**Example:**
+- Repository: `acme-corp/os-guidelines`
+- Site URL: `https://acme-corp.github.io/os-guidelines/`
+- Configuration:
+  ```yaml
+  baseurl: "/os-guidelines"
+  url: "https://acme-corp.github.io"
+  ```
+
+#### Scenario 2: GitHub Pages User/Organization Site
+
+Your site URL: `https://username.github.io/` (repository named `username.github.io`)
+
+**Configuration:**
+```yaml
+baseurl: ""                              # Empty for root deployment
+url: "https://username.github.io"        # Your GitHub Pages domain
+```
+
+#### Scenario 3: Custom Domain at Root
+
+Your site URL: `https://opensource.acme.com/`
+
+**Configuration:**
+```yaml
+baseurl: ""                              # Empty for root deployment
+url: "https://opensource.acme.com"       # Your custom domain
+```
+
+#### Scenario 4: Custom Domain with Path
+
+Your site URL: `https://acme.com/docs/`
+
+**Configuration:**
+```yaml
+baseurl: "/docs"                         # Path with leading slash
+url: "https://acme.com"                  # Domain without path
+```
+
+### Why baseurl Matters
+
+The Jekyll theme uses `{{ site.baseurl }}` to generate URLs for assets:
+- CSS files: `{{ site.baseurl }}/assets/css/...`
+- JavaScript: `{{ site.baseurl }}/assets/js/...`
+- Images: `{{ site.baseurl }}/assets/...`
+
+**Incorrect baseurl causes 404 errors** for these assets, breaking styling and functionality.
+
+### Verifying Your Configuration
+
+After deploying, check your browser console (F12):
+- ✅ **No 404 errors**: Configuration is correct
+- ❌ **404 errors for CSS/JS**: Check your baseurl setting
+
+**Common mistake**: Empty baseurl on a project site causes assets to load from wrong location:
+- Wrong: `https://username.github.io/assets/...` (404)
+- Correct: `https://username.github.io/repo-name/assets/...` (200)
+
+---
+
 ## Local Testing (Optional)
+
+### Local Development with baseurl
+
+When testing locally, you have two options:
+
+#### Option A: Override baseurl for Local Testing (Recommended)
+
+```bash
+cd docs
+bundle install
+
+# Override baseurl to empty for local development
+bundle exec jekyll serve --baseurl ""
+
+# Site available at: http://localhost:4000/
+```
+
+This works because localhost serves from root, not a subdirectory.
+
+#### Option B: Test with Production baseurl
+
+```bash
+cd docs
+bundle install
+
+# Use production baseurl (from _config.yml)
+bundle exec jekyll serve
+
+# Site available at: http://localhost:4000/your-repo-name/
+```
+
+This simulates production environment and helps catch URL issues before deployment.
+
+#### Option C: Use Development Config File
+
+Create `docs/_config_dev.yml`:
+
+```yaml
+# Development overrides
+baseurl: ""
+url: "http://localhost:4000"
+```
+
+Then serve with both configs:
+
+```bash
+bundle exec jekyll serve --config _config.yml,_config_dev.yml
+
+# Site available at: http://localhost:4000/
+```
+
+The second config file overrides settings from the first.
+
+---
+
+## Local Testing (Detailed)
 
 To preview changes locally before pushing to GitHub:
 
@@ -268,10 +412,10 @@ To use a custom domain (e.g., `opensource.acme.com`):
 
 ### Liquid Syntax Errors
 
-**Symptom**: `{{ site.organization.name }}` appears as literal text
+**Symptom**: `{% raw %}{{ site.organization.name }}{% endraw %}` appears as literal text
 
 **Solutions**:
-1. Ensure you're using double curly braces: `{{ }}` (not single `{ }`)
+1. Ensure you're using double curly braces: `{% raw %}{{ }}{% endraw %}` (not single `{ }`)
 2. Check variable name matches `_config.yml` exactly
 3. Verify indentation in YAML (spaces, not tabs)
 

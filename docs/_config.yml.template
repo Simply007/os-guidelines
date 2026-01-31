@@ -62,8 +62,45 @@ description: >-
   This site documents our approach to developing, publishing, and maintaining
   open source software.
 
-baseurl: ""
-url: ""
+# ==============================================================================
+# SITE URL CONFIGURATION
+# ==============================================================================
+# IMPORTANT: Configure baseurl based on your GitHub Pages deployment type
+#
+# SCENARIO 1 - GitHub Pages Project Site (most common):
+#   Site URL: https://username.github.io/repo-name/
+#   Configuration:
+#     baseurl: "/repo-name"                 # YOUR repository name with leading slash
+#     url: "https://username.github.io"     # YOUR GitHub organization/username
+#
+# SCENARIO 2 - GitHub Pages User/Org Site:
+#   Site URL: https://username.github.io/
+#   Repository name: username.github.io
+#   Configuration:
+#     baseurl: ""                           # Empty for root deployment
+#     url: "https://username.github.io"     # YOUR GitHub username
+#
+# SCENARIO 3 - Custom Domain at Root:
+#   Site URL: https://opensource.acme.com/
+#   Configuration:
+#     baseurl: ""                           # Empty for root deployment
+#     url: "https://opensource.acme.com"    # YOUR custom domain
+#
+# SCENARIO 4 - Custom Domain with Path:
+#   Site URL: https://acme.com/docs/
+#   Configuration:
+#     baseurl: "/docs"                      # Path with leading slash
+#     url: "https://acme.com"               # Domain without path
+#
+# WHY THIS MATTERS:
+# The baseurl is critical for loading CSS, JavaScript, and images correctly.
+# Wrong baseurl = 404 errors for theme assets = broken site styling.
+#
+# LOCAL DEVELOPMENT:
+# Override baseurl for local testing: bundle exec jekyll serve --baseurl ""
+
+baseurl: "/PLACEHOLDER_REPO_NAME"  # UPDATE THIS - See scenarios above
+url: "https://PLACEHOLDER_GITHUB_ORG.github.io"  # UPDATE THIS - See scenarios above
 markdown: GFM
 permalink: /:slug
 

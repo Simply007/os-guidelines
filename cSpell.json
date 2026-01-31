@@ -4,44 +4,23 @@
     "words": [
         "aspnetcore",
         "cheatsheet",
-        "Chrastina",
         "Cocoapod",
         "Cocoapods",
         "Codecov",
-        "codenames",
         "CODEOWNERS",
-        "convension",
         "Deno",
         "dprint",
-        "Dugre",
         "Fastly",
-        "Grigorik",
-        "Icaza",
-        "Ilesh",
-        "Ilya",
         "jumpstart",
-        "Keiver",
-        "kentico",
-        "Konstellations",
-        "kontent",
-        "Mistry",
-        "Ondrej",
-        "Ondřej",
         "Packagist",
-        "Palas",
-        "Petr",
         "phpdoc",
-        "Polesny",
         "premade",
-        "Presales",
-        "Ridgeway",
         "roadmap",
-        "Rostislav",
         "Rubygems",
         "sandboxed",
-        "Striz",
         "stypes",
-        "subpages"
+        "subpages",
+        "yourorg"
     ],
     "ignoreWords": [
         "battila",
@@ -51,9 +30,9 @@
         "shivammathur"
     ],
     "ignoreRegExpList": [
-        "\\`([^\\`].*?)\\`", // inline code blocks. h/t https://stackoverflow.com/questions/41274241/how-to-capture-inline-markdown-code-but-not-a-markdown-code-fence-with-regex
-        "/^\\s*```[\\s\\S]*?^\\s*```/gm", // Markdown code blocks. https://github.com/streetsidesoftware/vscode-spell-checker/issues/202#issuecomment-377477473
-        "^---[\\s\\S]*?---$", // YAML front-matter
-        "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$" //URL
+        "\\`([^\\`].*?)\\`",
+        "/^\\s*```[\\s\\S]*?^\\s*```/gm",
+        "^---[\\s\\S]*?---$",
+        "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
     ]
 }

@@ -1,171 +1,282 @@
 ---
 layout: default
-nav_order: 2
+title: Publishing Checklist
+nav_order: 5
 ---
 
-# Checklist for publishing a new OS project
+# Checklist for Publishing a New Open Source Project
 
-Before you publish any repository under Kontent.ai organization on GitHub, please go through this checklist and make sure the repository is up to standards.
+Before you publish any repository under your organization on GitHub, please go through this checklist and make sure the repository meets these standards.
 
-* [Repository name](#Repository-name)
-* [Dedicate a maintainer](#dedicate-a-maintainer)🔒
-* [Fulfill Community profile](#community-profile)🔒
-* [Set up GitHub features](#github-features)🔒
-* [Set Expectations](#expectations)🔒
-* [Add badges](#badges)
-* [Add automatic tests](#tests)❔
-* [Set up Continuous Integration](#continuous-integration)❔
-* [Protect Master Branch](#protect-the-master-branch)
-* [Add collaborating teams](#add-collaborating-teams)🔒
-* [Define release process](#releases)
+* [Repository name](#repository-name)
+* [Dedicate a maintainer](#dedicate-a-maintainer)
+* [Fulfill Community profile](#community-profile)
+* [Set up GitHub features](#github-features)
+* [Set Expectations](#set-expectations)
+* [Add badges](#add-badges)
+* [Add automatic tests](#add-automatic-tests)
+* [Set up Continuous Integration](#set-up-continuous-integration)
+* [Protect Main Branch](#protect-the-main-branch)
+* [Add collaborating teams](#add-collaborating-teams)
+* [Define release process](#define-release-process)
 
-## Repository name
+## Repository Name
 
 Set repository name according to the [Naming conventions](./Naming-conventions.md).
 
-## Dedicate a maintainer
-- _🔒 Required for private repositories too_
+## Dedicate a Maintainer
 
 It's essential to decide who's going to be responsible for the repository. Every repository needs to have an owner (a person or a team) who will actively:
-- set the right expectations about the project
-- keep the repository in a good shape
+
+- Set the right expectations about the project
+- Keep the repository in a good shape
+- Respond to issues and pull requests
 
 Read more on [the duties of a maintainer](./Duties-of-a-Repository-Maintainer.md).
 
-Mark this user into the [CODEOWNERS](https://help.github.com/articles/about-code-owners/) file. See an [example](https://github.com/kontent-ai/delivery-sdk-net/blob/master/.github/CODEOWNERS).
+Mark this user into the [CODEOWNERS](https://help.github.com/articles/about-code-owners/) file.
 
-## [Community profile](https://help.github.com/articles/about-community-profiles-for-public-repositories/)
-- should be "all green"
-- please note that it's available only for public repos and not for forked repos
+**Example CODEOWNERS file** (`.github/CODEOWNERS`):
+
+```
+# Default owner for everything in the repo
+* @your-github-username
+
+# Specific paths can have different owners
+/docs/ @docs-team
+/src/core/ @core-team
+```
+
+## [Community Profile](https://help.github.com/articles/about-community-profiles-for-public-repositories/)
+
+Should be "all green" - complete all recommended community files.
+
+Note: Community profile is available only for public repos and not for forked repos.
+
 ![Green community profile](https://i.imgur.com/DVRjA41.png)
 
-### Description, website, and topics
-- _🔒 Required for private repositories too_
+### Description, Website, and Topics
 
 Fill in basic information about the project to make it easy to find it.
+
 ![Topics](https://i.imgur.com/4lNqMK6.png)
 
-⚠ Tag the repository based on the division according to [Naming conventions](./Naming-conventions.md#github-repositories).
-
-In the case of private repositories, add a "private-repository" tag.
+Tag the repository based on the division according to [Naming conventions](./Naming-conventions.md#github-repositories).
 
 ### README (Documentation)
-- _🔒 Required for private repositories too_
 
 README should contain:
 
-- installation instructions
-- basic demonstration of usage
-- code examples (if applicable)
+- Installation instructions
+- Basic demonstration of usage
+- Code examples (if applicable)
+- Links to detailed documentation
+- Contact information: {{ site.organization.email }}
 
-More complex topics and examples can be covered in separate articles in GitHub Wiki (or an external system such as ReadTheDocs).
+More complex topics and examples can be covered in separate articles in GitHub Wiki or an external system such as ReadTheDocs.
 
-> The template of the README file is stored in [special ".github" repository](https://github.com/kontent-ai/.github).
+{: .note }
+Consider creating a `.github` repository in your organization to store default community health files that apply to all repositories. [See GitHub documentation](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file) for details.
 
 ### Contributing
+
 From the README or CONTRIBUTING files, it should be clear:
 
-- how to set up the project in order to contribute
-  - this may include creating a PowerShell or other (e.g. build) script to make it easy for the contributors
-- what kind of contributions are accepted and welcome
-- what's the definition of done (use PR templates)
-- which communication channels should be used to get in touch with the maintainer
-
-> The template of CONTRIBUTING file is stored in [repo-template](https://github.com/kontent-ai/repo-template).
+- How to set up the project in order to contribute
+  - This may include creating setup scripts to make it easy for contributors
+- What kind of contributions are accepted and welcome
+- What's the definition of done (use PR templates)
+- Which communication channels should be used to get in touch with the maintainer
 
 ### License
 
-Use the MIT license and set "Kontent.ai" as the copyright holder. If you want to use a different license, please contact the [DevRel team](mailto:devrel@kontent.ai).
+Use the MIT license (or your organization's preferred open source license) and set "{{ site.organization.name }}" as the copyright holder.
 
-Store the license in the "LICENSE.md" file.
+Store the license in the "LICENSE" or "LICENSE.md" file.
 
-> The template of the LICENSE file is stored in [special ".github" repository](https://github.com/kontent-ai/.github).
+**Example LICENSE file header:**
 
-### Issue & pull request templates & Code of Conduct
+```
+MIT License
 
-Automatically used from [special ".github" repository](https://github.com/kontent-ai/.github), [see the docs for more details](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
+Copyright (c) 2026 {{ site.organization.name }}
 
-### Security policy
+Permission is hereby granted, free of charge, to any person obtaining a copy...
+```
 
-Automatically used from [special ".github" repository](https://github.com/kontent-ai/.github), [see the docs for more details](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
+### Issue & Pull Request Templates & Code of Conduct
 
-## GitHub features
-- _🔒 Required for private repositories too_
+Create these files to guide contributors:
+
+- `.github/ISSUE_TEMPLATE/bug_report.md` - Bug report template
+- `.github/ISSUE_TEMPLATE/feature_request.md` - Feature request template
+- `.github/PULL_REQUEST_TEMPLATE.md` - PR template with checklist
+- `CODE_OF_CONDUCT.md` - Community standards
+
+Alternatively, store default templates in a `.github` repository to apply them across all your organization's repositories.
+
+### Security Policy
+
+Create a `SECURITY.md` file documenting:
+
+- Supported versions
+- How to report security vulnerabilities
+- Security contact: {{ site.organization.email }}
+- Expected response time
+
+**Example:**
+
+```markdown
+# Security Policy
+
+## Reporting a Vulnerability
+
+If you discover a security vulnerability, please email {{ site.organization.email }}
+with details. Do not create a public GitHub issue.
+
+We will respond within 48 hours and provide a timeline for fixes.
+```
+
+## GitHub Features
+
 Decide which features you turn on or off. This will help set expectations.
 
 ![GH Features](https://i.imgur.com/i6PICQv.png)
 
-## Expectations
-- _🔒 Required for private repositories too_
+Consider:
+- **Issues**: Enable for bug reports and feature requests
+- **Projects**: Enable if you want to show a public roadmap
+- **Wiki**: Enable for detailed documentation (or use external docs)
+- **Discussions**: Enable for community questions and announcements
+
+## Set Expectations
 
 You should make clear:
-- what kind of support users can expect (README)
-  - GH issues vs. StackOverflow, etc.
-- how to submit bugs (README + Issue/PR templates)
-- what the future of the project is and whether it's actively developed (set up a [project/backlog](https://github.com/kontent-ai/delivery-sdk-net/projects) or [archive](https://help.github.com/articles/archiving-a-github-repository/) a repo that's no longer being developed)
 
-In case of private repos, please add the following note to the top of the README:
-> 🛈 This repository contains Kontent.ai's internal code that is of no use to the general public. Please explore our [other repositories](https://github.com/kontent-ai).
+- What kind of support users can expect (README)
+  - GitHub issues vs. Stack Overflow, email, etc.
+- How to submit bugs (README + Issue templates)
+- What the future of the project is and whether it's actively developed
+  - Set up a [project board](https://docs.github.com/en/issues/planning-and-tracking-with-projects) to show roadmap
+  - [Archive](https://help.github.com/articles/archiving-a-github-repository/) a repo that's no longer being developed
 
 Set up an issue tracker. Most likely, you'll use GitHub issues. Take your time to set up labels and milestones.
 
-## Badges
+**Recommended labels:**
+- `bug` - Something isn't working
+- `enhancement` - New feature or request
+- `documentation` - Improvements or additions to documentation
+- `good first issue` - Good for newcomers
+- `help wanted` - Extra attention is needed
+
+## Add Badges
 
 Use badges to make it easy to find basic information about the status of the project.
 
-Pro tip: generate custom badges via https://shields.io/ ![Custom Badge](https://img.shields.io/badge/hellow-world-yellowgreen.svg?style=popout&logo=github)
+{: .note }
+Generate custom badges via [shields.io](https://shields.io/)
 
-Examples:
-* Continuous Integration
-    * [![Build & Test](https://github.com/Kentico/kontent-delivery-sdk-net/actions/workflows/integrate.yml/badge.svg)](https://github.com/Kentico/kontent-delivery-sdk-net/actions/workflows/integrate.yml)
-* Test coverage
-    * [Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges) ![Code Climate Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)
-* Static code analysis result
-    * [Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges) ![Code Climate](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)
-    * [SonarCloud](https://sonarcloud.io/documentation/user-guide/project-page/)
-* Deployment/Package status
-    * [Netlify](https://www.netlify.com/blog/2019/01/29/sharing-the-love-with-netlify-deployment-badges/)
-    * [npm](https://docs.npmjs.com/)
-    * [nuget](https://docs.microsoft.com/en-us/nuget/)
-* Chat
-    * [Stack Overflow](https://stackoverflow.com/) [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/kontent-ai)
-    * [Discord](https://discord.gg/SKCxwPtevJ) [![Discord](https://img.shields.io/discord/821885171984891914?label=Discord&logo=Discord&logoColor=white)](https://discord.gg/SKCxwPtevJ) (![Kontent Discord](https://img.shields.io/discord/821885171984891914?color=%237289DA&label=Kontent%20Discord&logo=discord))
+**Examples:**
 
-> ⚠ Try to unify the style of the badge statuses. If it is not possible group the stypes per line.
+* **Continuous Integration**
+  ```markdown
+  [![Build & Test](https://github.com/{{ site.organization.github_org }}/repo-name/actions/workflows/ci.yml/badge.svg)](https://github.com/{{ site.organization.github_org }}/repo-name/actions/workflows/ci.yml)
+  ```
 
-## Tests
-- _❔ Optional, but highly recommended._
+* **Test Coverage**
+  ```markdown
+  ![Code Climate Coverage](https://api.codeclimate.com/v1/badges/YOUR_BADGE_ID/test_coverage)
+  ```
 
-Include at least a basic set of (unit) tests.
+* **Package Status**
+  ```markdown
+  ![npm version](https://img.shields.io/npm/v/@{{ site.organization.shortname }}/package-name)
+  ![NuGet](https://img.shields.io/nuget/v/{{ site.organization.name }}.PackageName)
+  ```
+
+* **Community**
+  ```markdown
+  [![Stack Overflow](https://img.shields.io/badge/Stack%20Overflow-ASK%20NOW-FE7A16.svg?logo=stackoverflow&logoColor=white)](https://stackoverflow.com/tags/{{ site.organization.shortname }})
+  ```
+
+{: .note }
+Try to unify the style of the badge statuses. If it is not possible, group the styles per line.
+
+## Add Automatic Tests
+
+Include at least a basic set of (unit) tests. This is optional but highly recommended.
+
+**Best practices:**
+- Aim for >80% code coverage on critical paths
+- Include integration tests for API interactions
+- Add end-to-end tests for key user flows (if applicable)
+- Document how to run tests locally in CONTRIBUTING.md
 
 ## Review
-- Ask your colleagues to do a code review, basic testing, and proofreading before you publish any project. The [DevRel team](mailto:devrel@kontent.ai) may also help.
 
-## Continuous Integration
-- _❔ Optional, but highly recommended._
+Ask your colleagues to do a code review, basic testing, and proofreading before you publish any project. Consider having a checklist for pre-publication review.
 
-Setting up CI, makes it easy for contributors to know whether their code works as expected. You can find more info about CI practices in the [separate article](./CI-and-Automation-Guidelines.md).
+## Set up Continuous Integration
+
+Setting up CI makes it easy for contributors to know whether their code works as expected. This is optional but highly recommended.
+
+You can find more info about CI practices in the [separate article](./ci-and-automation/ci-and-automation.md).
 
 - Set up a build agent - [GitHub Actions](https://docs.github.com/en/actions)
   - Make it run tests
   - Fail builds on failed tests
 - Set up [status checks](https://docs.github.com/en/github/administering-a-repository/about-protected-branches#require-status-checks-before-merging) via webhooks
 
-## Protect the master branch
+**Recommended workflow checks:**
+- Run tests on all PRs
+- Check code formatting/linting
+- Verify build succeeds
+- Check for security vulnerabilities
+
+## Protect the Main Branch
+
 You can learn more about branch protection in the [documentation](https://docs.github.com/en/github/administering-a-repository/managing-a-branch-protection-rule#about-branch-protection-rules).
+
 ![Branch protection](https://github.com/kontent-ai/kontent-ai.github.io/assets/52500882/d4d9ba86-a1d0-488f-a7db-300c47f38298)
 
+**Recommended protection rules:**
+- Require pull request reviews before merging (minimum 1)
+- Require status checks to pass before merging
+- Require branches to be up to date before merging
+- Require linear history (optional)
+- Do not allow bypassing the above settings
 
-## Add collaborating teams
-- _🔒 Required for private repositories too_
+## Add Collaborating Teams
+
+Configure team access levels appropriately:
+
 ![Collaborators](https://i.imgur.com/0qkbWe1.png)
->In most cases, it'll be `Admin` permission for the Developer Relations team and `Write` permission for the Employees team.
 
-## Releases
-- Create an initial release
+**Typical setup:**
+- `Admin` permission for repository maintainers
+- `Write` permission for core contributors
+- `Triage` permission for community moderators
+- `Read` permission for stakeholders who need visibility
+
+## Define Release Process
+
+- Create an initial release (v1.0.0 or v0.1.0 for beta)
 - **Always** follow [Semantic Versioning](http://semver.org/)
+- Document the release process in CONTRIBUTING.md
+- Use GitHub Releases to publish releases
+- Include changelogs in release notes
+- Tag releases appropriately
 
-## Want to make the repo even more friendly?
-- Read the [Pre-launch checklist](https://opensource.guide/starting-a-project/#your-pre-launch-checklist).
+**Semantic Versioning reminder:**
+- `MAJOR` version: Breaking changes
+- `MINOR` version: New features (backward-compatible)
+- `PATCH` version: Bug fixes (backward-compatible)
 
+## Want to Make the Repo Even More Friendly?
 
+- Read the [Pre-launch checklist](https://opensource.guide/starting-a-project/#your-pre-launch-checklist)
+- Consider adding a `CHANGELOG.md` to track changes
+- Set up automated dependency updates (Dependabot)
+- Add a `CONTRIBUTORS.md` to recognize contributors
+- Create a roadmap or project board to show future plans
+- Enable GitHub Discussions for community questions

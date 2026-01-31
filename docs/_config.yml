@@ -16,12 +16,12 @@
 # throughout the documentation via Liquid templating (e.g., {{ site.organization.name }})
 
 organization:
-  name: "Your Organization"                    # Full organization name
-  shortname: "yourorg"                         # Lowercase identifier (used in package names, GitHub topics)
-  email: "opensource@yourorg.com"              # Open source program contact email
-  github_org: "your-github-org"                # GitHub organization slug
-  website: "https://yourorg.com"               # Main company website
-  docs_url: "https://docs.yourorg.com"         # Product documentation URL (optional, can be empty)
+  name: "Ondřej Chrastina" # Full organization name
+  shortname: "ondrejchrastina" # Lowercase identifier (used in package names, GitHub topics)
+  email: "ondrej@chrastina.dev" # Open source program contact email
+  github_org: "Simply007" # GitHub organization slug
+  website: "https://ondrej.chrastina.dev" # Main company website
+  docs_url: "https://ondrej.chrastina.dev/os-guidelines" # Product documentation URL (optional, can be empty)
 
 # ==============================================================================
 # BRANDING CONFIGURATION
@@ -29,12 +29,12 @@ organization:
 # Customize visual appearance. Colors should be hex values (e.g., "#FF6B35")
 
 branding:
-  logo_path: "assets/logo.svg"                 # Path to logo (relative to docs/ directory)
-  favicon_path: "assets/favicon.svg"           # Path to favicon (relative to docs/ directory)
-  color_scheme: "custom_dark"                  # Options: "custom_dark" or "custom_light"
-  primary_color: "#FF6B35"                     # Main brand color (links, buttons)
-  secondary_color: "#004E89"                   # Accent color (hover states, badges)
-  accent_color: "#1A1A1D"                      # Dark UI elements (backgrounds, borders)
+  logo_path: "assets/logo.svg" # Path to logo (relative to docs/ directory)
+  favicon_path: "assets/favicon.svg" # Path to favicon (relative to docs/ directory)
+  color_scheme: "custom_dark" # Options: "custom_dark" or "custom_light"
+  primary_color: "#FF6B35" # Main brand color (links, buttons)
+  secondary_color: "#004E89" # Accent color (hover states, badges)
+  accent_color: "#1A1A1D" # Dark UI elements (backgrounds, borders)
 
 # ==============================================================================
 # SOCIAL MEDIA (OPTIONAL)
@@ -42,9 +42,9 @@ branding:
 # Add your social media handles. Leave empty ("") if not applicable.
 
 social:
-  twitter: ""                                  # Twitter/X handle (without @)
-  discord_url: ""                              # Discord server invite URL
-  stackoverflow_tag: ""                        # Stack Overflow tag for questions
+  twitter: "" # Twitter/X handle (without @)
+  discord_url: "" # Discord server invite URL
+  stackoverflow_tag: "" # Stack Overflow tag for questions
 
 # ==============================================================================
 # JEKYLL SITE SETTINGS
@@ -78,8 +78,8 @@ description: >-
 #
 # For local development, override with: bundle exec jekyll serve --baseurl ""
 
-baseurl: "/os-guidelines"  # Project site deployment - UPDATE THIS for your repository
-url: "https://ondrej.chrastina.dev"  # Production domain - UPDATE THIS for your domain
+baseurl: "/os-guidelines" # Project site deployment - UPDATE THIS for your repository
+url: "https://ondrej.chrastina.dev" # Production domain - UPDATE THIS for your domain
 markdown: GFM
 permalink: /:slug
 
@@ -91,7 +91,7 @@ favicon_ico: "assets/favicon.svg"
 footer_content: >-
   Copyright &copy; 2026 Your Organization.
   Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
-  Template based on guidelines from <a href="https://github.com/kontent-ai/os-guidelines">Kontent.ai</a>.
+  Template based on guidelines from <a href="https://github.com/kontent-ai/kontent-ai.github.io">Kontent.ai</a>.
 
 # ==============================================================================
 # THEME CONFIGURATION

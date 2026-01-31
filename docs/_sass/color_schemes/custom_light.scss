@@ -1,0 +1,35 @@
+// ============================================================================
+// Custom Light Color Scheme
+// ============================================================================
+// This color scheme provides a light mode theme with customizable brand colors.
+// Colors are defined in docs/_config.yml under branding section.
+// Default colors provided here can be overridden via configuration.
+
+// Typography
+$body-font-family: system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+  roboto, "Helvetica Neue", arial, sans-serif !default;
+$mono-font-family: "SFMono-Regular", menlo, consolas, monospace !default;
+$root-font-size: 16px !default; // Base font-size for rems
+$body-line-height: 1.4 !default;
+$content-line-height: 1.6 !default;
+$body-heading-line-height: 1.25 !default;
+
+// ============================================================================
+// Brand Colors (Customizable)
+// ============================================================================
+// Define your organization's brand colors here.
+// These should match the colors in docs/_config.yml branding section.
+
+$primary-color: #FF6B35 !default;     // Main brand color (links, buttons)
+$secondary-color: #004E89 !default;   // Accent color (hover states, highlights)
+$accent-color: #1A1A1D !default;      // Dark UI elements (backgrounds, borders)
+
+// ============================================================================
+// Semantic Color Assignments
+// ============================================================================
+// These use the brand colors defined above for consistent theming
+
+$link-color: $primary-color;
+$btn-primary-color: $primary-color;
+$body-text-color: #000000;
+$nav-width: 21rem;

@@ -21,7 +21,7 @@ The action gets the tag version, restores dependencies, and builds the project w
 - Artifact is uploaded to GitHub Releases by [Roang-zero1/github-upload-release-artifacts-action@v3.0.0](https://github.com/Roang-zero1/github-upload-release-artifacts-action) action.
 - Tokens and secrets are stored in the [Organization Secrets](https://github.blog/changelog/2020-05-14-organization-secrets/).
 
-## [GitHub Action example](https://github.com/kontent-ai/kontent-ai-delivery-sdk-net/blob/master/.github/workflows/release.yml)
+## GitHub Action example
 ```yaml
 name: Publish to NuGet
 on:

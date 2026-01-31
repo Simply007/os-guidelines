@@ -1,28 +1,43 @@
 ---
-nav_exclude: true
+layout: default
+title: Home
+nav_order: 1
 ---
 
-## Welcome to the Kontent.ai developer resources! 
-#### You can find some useful guidelines here that might help you get your OS project right.
+# Open Source Guidelines Template
+
+Welcome! This is a comprehensive template for organizations looking to establish clear, professional guidelines for their open source projects. Whether you're building SDKs, developer tools, or integrations, this template provides the structure and best practices to help your community contributors succeed.
+
+## What's Included
+
+This template provides ready-to-use documentation covering:
+
+- **[Publishing Checklist](./Checklist-for-publishing-a-new-OS-project.md)** - Pre-launch requirements for community profiles, testing, CI/CD, and branch protection
+- **[Naming Conventions](./Naming-conventions.md)** - Consistent naming patterns for repositories, packages, and projects
+- **[Maintainer Duties](./Duties-of-a-Repository-Maintainer.md)** - Clear responsibilities for repository maintainers
+- **[CI/CD Guides](./ci-and-automation/ci-and-automation.md)** - Technology-specific automation guidelines for .NET, Java, JavaScript, PHP, Ruby, and Swift
+- **[Example Templates](./examples/)** - SDK, integration, and governance guideline templates
+
+## Getting Started
+
+1. **Setup** - Follow the [SETUP.md](./SETUP.md) guide to customize this template for {{ site.organization.name }}
+2. **Customize** - Check [CUSTOMIZATION.md](./CUSTOMIZATION.md) for advanced configuration options
+3. **Examples** - Review [template examples](./examples/) to see how to structure your guidelines
+
+## About This Template
+
+This template is based on the open source guidelines developed by [Kontent.ai](https://github.com/kontent-ai/os-guidelines), refined through years of maintaining SDKs and tools across multiple technology stacks. We've generalized these guidelines so any organization can adopt and adapt them.
+
+The documentation uses Liquid templating to reference your organization's name ({{ site.organization.name }}), contact email ({{ site.organization.email }}), and other configurable values throughout. This makes it easy to white-label the entire site by editing a single configuration file.
+
+## Important: This is a Template
+
+**This template requires customization before use.** The default configuration contains placeholder values like "Your Organization" and "opensource@yourorg.com" that must be updated to reflect your organization. All documentation pages contain references that need to be adapted to your specific products, services, and policies.
+
+Start by reviewing the [SETUP.md](./SETUP.md) guide to configure your organization's details, branding, and social media links.
 
 ---
 
-### Getting started
+### Need Help?
 
-Whether you're developing a [simple tool](./Guidelines-for-Kontent.ai-related-tools.md) or a [full-fledged SDK](./Guidelines-for-SDK-developers.md), our developer resources are the right place to help you jumpstart your project. Make sure that your code and project adheres to our [naming conventions](./Naming-conventions) and go through the [checklist](./Checklist-for-publishing-a-new-OS-project.md) before you publish your work.
-
-For majority of Kontent.ai-related repositories, we recommend having automated workflows in place.
-[CI & Automation](./ci-and-automation/ci-and-automation.md) section covers these scenarios for all major tech stacks. If you're releasing your tool to its respective package manager, make sure to follow [SemVer](https://semver.org/) guidelines!
-
-If you're looking for a piece of information you couldn't find in this documentation, check out [Related resources](./Related-Resources.md) section for a comprehensive list of both internal and community-maintained sources of information on our product.
-
----
-### Contact us!
-
-If you find any issues with this documentation or you feel like it's missing some important information, don't hesitate to contact us at devrel@kontent.ai or join us at our Discord server:
-
-[![Kontent.ai Discord](https://img.shields.io/discord/821885171984891914?color=%237289DA&label=Kontent%20Discord&logo=discord&style=for-the-badge)](https://bit.ly/kontent-discord)
-
-### Code of conduct
-The Kontent.ai team is committed to fostering a welcoming community, therefore all our projects has adopted the Contributor Covenant Code of Conduct.
-
+Questions about this template? Found something that needs improvement? Contact us at {{ site.organization.email }} or contribute directly to the [template repository](https://github.com/{{ site.organization.github_org }}/os-guidelines).

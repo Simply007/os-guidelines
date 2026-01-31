@@ -1,67 +1,128 @@
-# Welcome to Jekyll!
+# Open Source Guidelines Template Configuration
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
+# This configuration file controls the entire site. Customize the organization,
+# branding, and social sections below to white-label this template for your use.
 #
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# After making changes, the site will automatically rebuild on GitHub Pages.
+# For local testing: bundle exec jekyll serve
 #
-# If you need help with YAML syntax, here are some quick references for you:
+# YAML syntax help:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 
-title: Kontent.ai GitHub docs
-email: devrel@kontent.ai
-description: >- # this means to ignore newlines until "baseurl:"
-  Kontent.ai developer resources in one place to help you get your OS project right!
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+# ==============================================================================
+# ORGANIZATION CONFIGURATION
+# ==============================================================================
+# Customize these values for your organization. These variables are used
+# throughout the documentation via Liquid templating (e.g., {{ site.organization.name }})
+
+organization:
+  name: "Your Organization"                    # Full organization name
+  shortname: "yourorg"                         # Lowercase identifier (used in package names, GitHub topics)
+  email: "opensource@yourorg.com"              # Open source program contact email
+  github_org: "your-github-org"                # GitHub organization slug
+  website: "https://yourorg.com"               # Main company website
+  docs_url: "https://docs.yourorg.com"         # Product documentation URL (optional, can be empty)
+
+# ==============================================================================
+# BRANDING CONFIGURATION
+# ==============================================================================
+# Customize visual appearance. Colors should be hex values (e.g., "#FF6B35")
+
+branding:
+  logo_path: "assets/logo.svg"                 # Path to logo (relative to docs/ directory)
+  favicon_path: "assets/favicon.svg"           # Path to favicon (relative to docs/ directory)
+  color_scheme: "custom_dark"                  # Options: "custom_dark" or "custom_light"
+  primary_color: "#FF6B35"                     # Main brand color (links, buttons)
+  secondary_color: "#004E89"                   # Accent color (hover states, badges)
+  accent_color: "#1A1A1D"                      # Dark UI elements (backgrounds, borders)
+
+# ==============================================================================
+# SOCIAL MEDIA (OPTIONAL)
+# ==============================================================================
+# Add your social media handles. Leave empty ("") if not applicable.
+
+social:
+  twitter: ""                                  # Twitter/X handle (without @)
+  discord_url: ""                              # Discord server invite URL
+  stackoverflow_tag: ""                        # Stack Overflow tag for questions
+
+# ==============================================================================
+# JEKYLL SITE SETTINGS
+# ==============================================================================
+# These use the organization/branding values defined above
+
+title: "Open Source Guidelines"
+email: opensource@yourorg.com
+description: >-
+  Best practices and guidelines for developing, publishing, and maintaining
+  open source projects. Customize this template for your organization.
+
+baseurl: ""
+url: ""
 markdown: GFM
-logo: "assets/kai-gradient.png"
-footer_content: "Created for Kontent.ai. Powered by <a href=\"https://github.com/just-the-docs/just-the-docs\">Just The Docs</a>"
 permalink: /:slug
-favicon_ico: "/assets/kai-icon-color.png"
 
-# Build settings
+# Logo and favicon (using branding configuration)
+logo: "assets/logo.svg"
+favicon_ico: "assets/favicon.svg"
+
+# Footer
+footer_content: >-
+  Copyright &copy; 2026 Your Organization.
+  Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+  Template based on guidelines from <a href="https://github.com/kontent-ai/os-guidelines">Kontent.ai</a>.
+
+# ==============================================================================
+# THEME CONFIGURATION
+# ==============================================================================
+
 remote_theme: just-the-docs/just-the-docs
-color_scheme: kai_dark
+color_scheme: custom_dark
+
 plugins:
   - jekyll-feed
 
-# Footer settings
-gh_edit_link: true # show or hide edit this page link
-gh_edit_link_text: "Edit this page on GitHub."
-gh_edit_repository: "https://github.com/kontent-ai/kontent-ai.github.io"
-gh_edit_branch: "main"
-gh_edit_view_mode: "edit" # "tree" or "edit" if you want the user to jump into the editor immediately
-gh_edit_source: docs # the source that your files originate from
+# Search
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 3
+  preview_words_before: 5
+  preview_words_after: 10
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Heading anchors
+heading_anchors: true
+
+# Navigation
+nav_sort: case_insensitive
+
+# ==============================================================================
+# GITHUB INTEGRATION
+# ==============================================================================
+# Edit links point to your repository
+
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/your-github-org/os-guidelines"
+gh_edit_branch: "main"
+gh_edit_view_mode: "edit"
+gh_edit_source: docs
+
+# ==============================================================================
+# BUILD SETTINGS
+# ==============================================================================
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - TEMPLATE_GUIDE.md

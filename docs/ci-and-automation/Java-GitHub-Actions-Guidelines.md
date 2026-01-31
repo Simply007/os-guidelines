@@ -16,7 +16,7 @@ In this Action, the package is built and published using [Gradle](https://gradle
 - The release is triggered by the `./gradlew publish` command.
 - Secrets, keys, and tokens are stored in .env variables and secret properties.
 
-## [GitHub Action example](https://github.com/kontent-ai/kontent-ai-java-packages/blob/master/.github/workflows/publish.yml)
+## GitHub Action example
 - Build, test, and publish Java project to Nexus registry
 ```yaml
 name: Publish package to the Maven Central Repository

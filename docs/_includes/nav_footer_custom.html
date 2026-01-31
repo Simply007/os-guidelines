@@ -1,1 +1,9 @@
-<footer class="site-footer">Looking for product documentation? See <a href="https://kontent.ai/learn/">kontent.ai/learn</a></footer>.
+<footer class="site-footer">
+  <p>
+    <a href="{{ site.organization.website }}">{{ site.organization.name }}</a>
+    {% if site.organization.docs_url and site.organization.docs_url != "" %}
+      | <a href="{{ site.organization.docs_url }}">Documentation</a>
+    {% endif %}
+    | <a href="mailto:{{ site.organization.email }}">Contact</a>
+  </p>
+</footer>

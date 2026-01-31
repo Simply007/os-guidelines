@@ -9,15 +9,15 @@ has_children: true
 
 ## Formatting
 
-We use [dprint](https://dprint.dev/) as a formatter. Use our [shared configuration](https://github.com/kontent-ai/dprint-config) to format your project. Readme in the repository should guide you through the setup process.
+We recommend using [dprint](https://dprint.dev/) as a formatter. Consider creating a shared configuration for your organization to maintain consistency across projects.
 
 ## Linting
 
-We use [eslint](https://eslint.org/) as a linter. Extend our [shared configuration](https://github.com/kontent-ai/eslint-config). Readme in the repository should guide you through the setup process. 
+We recommend using [eslint](https://eslint.org/) as a linter. Consider creating a shared configuration for your organization to maintain consistency across projects.
 
 # Guidelines for JS apps
 
-Welcome to the Kontent.ai guidelines for JS app developers! Please, follow the guidelines when you develop a repository with an app written in JS/TS (e.g. sample app, integration template...).
+Welcome to the guidelines for JS app developers! Please follow these guidelines when you develop a repository with an app written in JS/TS (e.g. sample app, integration template).
 
 ## dependencies and devDependencies
 
@@ -25,7 +25,7 @@ For apps there are no significant reasons to split dependencies into dependencie
 
 # Guidelines for JS libraries
 
-Welcome to the Kontent.ai guidelines for JS library developers! Please, follow the guidelines when you develop a repository with a reusable library written in JS/TS (e.g. SDKs, reusable react components).
+Welcome to the guidelines for JS library developers! Please follow these guidelines when you develop a repository with a reusable library written in JS/TS (e.g. SDKs, reusable react components).
 
 ## dependencies and devDependencies
 
@@ -34,7 +34,7 @@ Separate dependencies and devDependencies based on which dependencies are needed
 ## Use peerDependencies
 
 Remember to put dependencies into peer dependencies if the dependency should belong there. For example React often belongs to peer dependencies.
-If you are not sure, whether some dependency belongs to peer dependencies, please check out [this post](https://nodejs.org/en/blog/npm/peer-dependencies/) or consult someone from code owners or @kontent-ai/developer-relations.
+If you are not sure whether some dependency belongs to peer dependencies, please check out [this post](https://nodejs.org/en/blog/npm/peer-dependencies/) or consult with your team's code owners.
 
 ```jsonc
 {

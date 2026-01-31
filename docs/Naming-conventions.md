@@ -1,6 +1,7 @@
 ---
 layout: default
-nav_order: 4
+title: Naming Conventions
+nav_order: 6
 ---
 
 # Naming conventions
@@ -9,8 +10,8 @@ nav_order: 4
 
 ### Repository name:
 
-* projects under the [Kontent.ai Github organization](https://github.com/kontent-ai/) don't need any further mention of the product in their name
-* If a Kontent.ai related repository is managed in an external organization, use pattern `kontent-ai-<project-name>` or at least provide `kontent-ai` somewhere in the repository name (i.e. `sourcebit-source-kontent-ai`)
+* projects under the [{{ site.organization.name }} Github organization](https://github.com/{{ site.organization.shortname }}/) don't need any further mention of the product in their name
+* If a {{ site.organization.name }} related repository is managed in an external organization, use pattern `{{ site.organization.shortname }}-<project-name>` or at least provide `{{ site.organization.shortname }}` somewhere in the repository name (i.e. `sourcebit-source-{{ site.organization.shortname }}`)
 
 ### `<project-name>` guidelines:
 
@@ -18,15 +19,15 @@ nav_order: 4
 
 ### Tagging
 
-If you want to, you can mark your repository by specific [GitHub topics](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics). This ensures, you get to the topic listing and your repository will be much more accessible. 
+If you want to, you can mark your repository by specific [GitHub topics](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics). This ensures, you get to the topic listing and your repository will be much more accessible.
 
 > Feel free to use multiple topics.
 > Use any other appropriate tags for the repo. (e.g. cli, dotnet, plugin, etc.)
 
-* [kontent-ai](https://github.com/topics/kontent-ai) - General topic used in all repositories related to Kontent.ai.
-    * [kontent-ai-integration](https://github.com/topics/kontent-ai-integration) - Repository helps to integrate with other services (see [Integrations info](./Integrations.md) for more).
-    * [kontent-ai-tool](https://github.com/topics/kontent-ai-tool) Repository helps with the tooling around Kontent.ai (SDKs, CLIs, Generators, Mini apps using API etc.).
-    * [kontent-ai-sample](https://github.com/topics/kontent-ai-sample) Repository is showcasing the usage of Kontent.ai.
+* [{{ site.organization.shortname }}](https://github.com/topics/{{ site.organization.shortname }}) - General topic used in all repositories related to {{ site.organization.name }}.
+    * [{{ site.organization.shortname }}-integration](https://github.com/topics/{{ site.organization.shortname }}-integration) - Repository helps to integrate with other services (see [Integrations info](./Integrations.md) for more).
+    * [{{ site.organization.shortname }}-tool](https://github.com/topics/{{ site.organization.shortname }}-tool) Repository helps with the tooling around {{ site.organization.name }} (SDKs, CLIs, Generators, Mini apps using API etc.).
+    * [{{ site.organization.shortname }}-sample](https://github.com/topics/{{ site.organization.shortname }}-sample) Repository is showcasing the usage of {{ site.organization.name }}.
 
 ## Code
 
@@ -34,12 +35,11 @@ If you want to, you can mark your repository by specific [GitHub topics](https:/
 
 We stick to [Microsoft's conventions](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-namespaces) `<Company>.(<Product>|<Technology>)[.<Feature>][.<Subnamespace>]`. Some examples:
 
-  * `Kontent.Ai.*` for Kontent.ai projects under the [Kontent.ai Github organization](https://github.com/kontent-ai/)
-  * `<YourCompany>.Kontent.Ai.*` for any externally maintained Kontent.ai projects 
-  * `Kontent.Ai.<Technology>*` for non-product related code. Eg. `Kontent.Ai.AspNetCore.Http` if the code is related to `Microsoft.AspNetCore.Http`.
+  * `<Company>.<Product>.*` for projects under the [{{ site.organization.name }} Github organization](https://github.com/{{ site.organization.shortname }}/)
+  * `<YourCompany>.<Product>.*` for any externally maintained {{ site.organization.name }} projects
+  * `<Company>.<Technology>*` for non-product related code. Eg. `<Company>.AspNetCore.Http` if the code is related to `Microsoft.AspNetCore.Http`.
 
 ### Packages
 
-* Package names should omit mentions of the technology stack, assuming it can be derived from the package manager (for example `@kontent-ai/delivery-sdk-js` package hosted on npm should lose the `-js` suffix)
-* When it makes sense, use organization prefixes (e.g. @kontent-ai/deliver-sdk-js)
-* For projects under the [Kontent.ai Github organization](https://github.com/kontent-ai/) ONLY: Use appropriate icons from [https://github.com/kontent-ai/.github/tree/main/logos](https://github.com/kontent-ai/.github/tree/main/logos)
+* Package names should omit mentions of the technology stack, assuming it can be derived from the package manager (for example `@{{ site.organization.shortname }}/delivery-sdk-js` package hosted on npm should lose the `-js` suffix)
+* When it makes sense, use organization prefixes (e.g. @{{ site.organization.shortname }}/deliver-sdk-js)

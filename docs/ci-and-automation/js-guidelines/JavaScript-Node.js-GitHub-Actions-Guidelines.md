@@ -17,7 +17,7 @@ The Action install [npm](http://npmjs.com/) dependencies and can run scripts def
 - The action uses [actions/setup-node@v2](https://github.com/actions/setup-node) action for setting Node.js environment.
 - Since `actions/setup-node@v2` you can set the node version using `.nvrmc file`.
 
-## [GitHub Action example](https://github.com/kontent-ai/delivery-sdk-js/blob/master/.github/workflows/test.yml)
+## GitHub Action example
 - This action runs a command `test:all` defined in the `package.json` file.
 
 ```yaml
@@ -44,9 +44,7 @@ lts/*
 
 ### Codecov support
 
-You can register the repository to be used in the [Codecov](https://about.codecov.io/) test coverage.
-
-Kontent.ai GitHub organization has the [Codecov application](https://github.com/apps/codecov) allowed for all repositories, so the only thing to do is to add additional [codecov github action](https://github.com/codecov/codecov-action) step into the github action workflow.
+You can register the repository to be used in the [Codecov](https://about.codecov.io/) test coverage. If your GitHub organization has the [Codecov application](https://github.com/apps/codecov) enabled, you can add the [codecov github action](https://github.com/codecov/codecov-action) step into the github action workflow.
 
 ```yml
 steps:
@@ -61,11 +59,9 @@ steps:
     verbose: true # optional (default = false)
 ``` 
 
-> Feel free to get inspired by this [PR adding codecov to Kontent CLI](https://github.com/kontent-ai/cli/pull/46).
-
 ## Publish to npm with GitHub release
 
-If you want to publish your package to npm, the best way it to have an action trigger when you create a GitHub release. The published package version should be taken from the release's version (tag) and the version should be committed back into the `package.json` by the action. You can find an example of such an action [here](https://github.com/kontent-ai/react-components/blob/main/.github/workflows/release.yml).
+If you want to publish your package to npm, the best way it to have an action trigger when you create a GitHub release. The published package version should be taken from the release's version (tag) and the version should be committed back into the `package.json` by the action.
 
 > **Warning**
 > 

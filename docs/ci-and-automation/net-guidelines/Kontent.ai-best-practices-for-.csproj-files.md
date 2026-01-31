@@ -21,10 +21,10 @@ grand_parent: CI & automation
 To learn more about the purpose of the various attributes, read:
 - https://andrewlock.net/version-vs-versionsuffix-vs-packageversion-what-do-they-all-mean/#fileversion
 
-The `Version` attribute gets propagated to all other version numbers (unless overridden). In case you think you need more granular settings for your project, always contact devrel@kontent.ai.
+The `Version` attribute gets propagated to all other version numbers (unless overridden). In case you think you need more granular settings for your project, always consult with your team.
 
 ### `Version`
-In Kontent.ai .NET projects (such as [kontent-ai-delivery-sdk-net](https://github.com/kontent-ai/delivery-sdk-net) or [kontent-ai-management-sdk-net](https://github.com/kontent-ai/kontent-ai-management-sdk-net) we **don't store a version number anywhere in the source files**.
+For .NET projects we recommend **not storing a version number anywhere in the source files**.
 
 The version of a release is determined by a [tag version](https://help.github.com/en/articles/creating-releases) and promoted to the NuGet package through the combination of [`dotnet build -p:Version=1.2.3`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build) and [`dotnet pack -p:PackageVersion=1.2.3`](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack).
 
@@ -44,7 +44,7 @@ In case you want to get rid of the `AssemblyInfo.cs` completely and the only thi
 ```
 
 ## SourceLink & Symbol publishing
-It's mandatory for Kontent.ai .NET projects to have [SourceLink](https://github.com/dotnet/sourcelink/) enabled. This is the recommended configuration:
+We recommend enabling [SourceLink](https://github.com/dotnet/sourcelink/) for .NET projects. This is the recommended configuration:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -64,17 +64,17 @@ It's mandatory for Kontent.ai .NET projects to have [SourceLink](https://github.
 Always use `<GenerateDocumentationFile>true</GenerateDocumentationFile>`. Don't use the `<DocumentationFile>` attribute if not necessary.
 
 ## Repository & package metadata
-The following attributes are required:
+The following attributes are recommended:
 ```xml
 <PropertyGroup>
-  <Authors>Kontent.ai</Authors>
-  <Product>Kontent.ai</Product>
-  <Copyright>© 2022 Kontent.ai. All rights reserved.</Copyright>
-  <Description>✏️</Description>
+  <Authors>{{ site.organization.name }}</Authors>
+  <Product>{{ site.organization.name }}</Product>
+  <Copyright>© 2024 {{ site.organization.name }}. All rights reserved.</Copyright>
+  <Description>Your package description</Description>
   <PackageLicenseExpression>MIT</PackageLicenseExpression>
-  <PackageProjectUrl>https://github.com/kontent-ai/✏️</PackageProjectUrl>
-  <PackageIconUrl>https://github.com/kontent-ai/.github/blob/master/images/logo_nuget.png?raw=true</PackageIconUrl>
-  <RepositoryUrl>https://github.com/kontent-ai/✏️.git</RepositoryUrl>
+  <PackageProjectUrl>https://github.com/yourorg/your-project</PackageProjectUrl>
+  <PackageIconUrl>https://github.com/yourorg/.github/blob/master/images/logo_nuget.png?raw=true</PackageIconUrl>
+  <RepositoryUrl>https://github.com/yourorg/your-project.git</RepositoryUrl>
 </PropertyGroup>
 ```
 
@@ -91,6 +91,3 @@ For other types of projects (i.e. test projects, console applications) target .N
 ```xml
 <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
 ```
-
-> **Warning**
-> [kontent-ai-aspnetcore](https://github.com/kontent-ai/kontent-ai-aspnetcore) targets .NET 5 and .NET 6, despite being a class library. Subject to change after .NET 7 adoption.

@@ -12,20 +12,19 @@ Once the release is triggered, dependencies are installed, then the project is b
 ## Notes
 - It is recommended to run builds for Swift/Apple platforms on a macOS machine - `jobs.<name>.runs-on` property.
 - Target platforms are specified in `strategy.matrix.destination` property.
-- Manual steps for the releasing of the new version - https://github.com/kontent-ai/kontent-delivery-sdk-swift#releasing-a-new-version-of-the-cocoapod-package
 - Before building, the [Cocoapods package manager](https://cocoapods.org/) is installed, repo (trunk mirror) is updated and dependencies are installed.
 ```bash
 gem install cocoapods
 pod repo update
 pod install --project-directory=Example
-set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/KontentAiDelivery.xcworkspace -scheme KontentAiDelivery-Example -sdk iphonesimulator -destination 'name=iPhone 11' ONLY_ACTIVE_ARCH=NO | xcpretty
+set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/YourProject.xcworkspace -scheme YourProject-Example -sdk iphonesimulator -destination 'name=iPhone 11' ONLY_ACTIVE_ARCH=NO | xcpretty
 ```
 - Built dependency pod is pushed to the [Cocoapod trunk](https://guides.cocoapods.org/making/getting-setup-with-trunk.html).
 ```bash
 pod trunk push
 ```
 
-## [GitHub Action example](https://github.com/kontent-ai/kontent-delivery-sdk-swift/blob/master/.github/workflows/publish.yml)
+## GitHub Action example
 - Build test and publish to Cocoapods project written in Swift
 
 ```yaml
@@ -48,7 +47,7 @@ jobs:
           gem install cocoapods
           pod repo update
           pod install --project-directory=Example
-          set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/KontentAiDelivery.xcworkspace -scheme KontentAiDelivery-Example -sdk iphonesimulator -destination 'name=iPhone 11' ONLY_ACTIVE_ARCH=NO | xcpretty
+          set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace Example/YourProject.xcworkspace -scheme YourProject-Example -sdk iphonesimulator -destination 'name=iPhone 11' ONLY_ACTIVE_ARCH=NO | xcpretty
       - name: Publish Cocoapod
         run: pod trunk push
         env:

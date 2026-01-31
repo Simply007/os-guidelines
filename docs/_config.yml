@@ -57,8 +57,29 @@ description: >-
   Best practices and guidelines for developing, publishing, and maintaining
   open source projects. Customize this template for your organization.
 
-baseurl: ""
-url: ""
+# Site URL Configuration
+# IMPORTANT: Configure baseurl based on your deployment scenario
+#
+# GitHub Pages project site (username.github.io/repo-name/):
+#   baseurl: "/repo-name"
+#   url: "https://username.github.io"
+#
+# GitHub Pages user/org site (username.github.io/):
+#   baseurl: ""
+#   url: "https://username.github.io"
+#
+# Custom domain at root (example.com/):
+#   baseurl: ""
+#   url: "https://example.com"
+#
+# Custom domain with path (example.com/docs/):
+#   baseurl: "/docs"
+#   url: "https://example.com"
+#
+# For local development, override with: bundle exec jekyll serve --baseurl ""
+
+baseurl: "/os-guidelines"  # Project site deployment - UPDATE THIS for your repository
+url: "https://ondrej.chrastina.dev"  # Production domain - UPDATE THIS for your domain
 markdown: GFM
 permalink: /:slug
 

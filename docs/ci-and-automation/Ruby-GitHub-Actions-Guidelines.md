@@ -7,14 +7,14 @@ parent: CI & automation
 # Ruby GitHub actions guidelines
 
 ## What the Action does
-The action runs with the GitHub release. The action installs dependencies, runs tests, and publishes gem to [Rubygems](https://rubygems.org/gems/kontent-delivery-sdk-ruby).
+The action runs with the GitHub release. The action installs dependencies, runs tests, and publishes gem to [Rubygems](https://rubygems.org/).
 
 ## Notes
 - It's recommended to use Linux machine for building - `jobs.<name>.runs-on` property.
 - For publishing, the action uses 3rd party [dawidd6/action-publish-gem@v1](https://github.com/dawidd6/action-publish-gem) action.
 - The SDK uses GitHub releases.
 
-## [GitHub Action example](https://github.com/kontent-ai/kontent-delivery-sdk-ruby/blob/master/.github/workflows/publish-gem.yml)
+## GitHub Action example
 - Build test and publish gem to Rubygems
 ```yaml
 name: publish-gem

@@ -16,7 +16,7 @@ This action sets up the PHP environment on the Ubuntu machine. It validates and 
 - Package on Packagist will be automatically crawled periodically. You just have to make sure you keep the composer.json file up to date - for more info take a look at the [Packagist documentation](https://packagist.org/).
 - Version of the package on Packagist is automatically fetched from the [tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
 
-## [GitHub Action example](https://github.com/kontent-ai/kontent-ai-delivery-sdk-php/blob/master/.github/workflows/integrate.yml)
+## GitHub Action example
 - PHP project using Composer and Codecov
 ```yaml
 name: Build & Test & Report

@@ -1,0 +1,163 @@
+# Open Source Guidelines Template Configuration
+#
+# INSTRUCTIONS: Copy this file to _config.yml and replace all PLACEHOLDER_* values
+# with your organization's information.
+#
+# Quick setup (5 steps):
+# 1. Replace PLACEHOLDER_ORG_NAME with your organization name
+# 2. Replace PLACEHOLDER_ORG_SHORTNAME with lowercase identifier
+# 3. Replace PLACEHOLDER_EMAIL with your contact email
+# 4. Replace PLACEHOLDER_GITHUB_ORG with your GitHub organization
+# 5. Customize colors (optional)
+#
+# After making changes, the site will automatically rebuild on GitHub Pages.
+# For local testing: bundle exec jekyll serve
+
+# ==============================================================================
+# ORGANIZATION CONFIGURATION
+# ==============================================================================
+
+organization:
+  name: "PLACEHOLDER_ORG_NAME"                 # Example: "Acme Corporation"
+  shortname: "PLACEHOLDER_ORG_SHORTNAME"       # Example: "acme" (lowercase, no spaces)
+  email: "PLACEHOLDER_EMAIL"                   # Example: "opensource@acme.com"
+  github_org: "PLACEHOLDER_GITHUB_ORG"         # Example: "acme-corp"
+  website: "PLACEHOLDER_WEBSITE"               # Example: "https://acme.com"
+  docs_url: "PLACEHOLDER_DOCS_URL"             # Example: "https://docs.acme.com" (or leave empty: "")
+
+# ==============================================================================
+# BRANDING CONFIGURATION
+# ==============================================================================
+# Customize colors using hex values. Use a color picker to find your brand colors.
+# Default colors provided are neutral and professional.
+
+branding:
+  logo_path: "assets/logo.svg"                 # Path to your logo (replace placeholder)
+  favicon_path: "assets/favicon.svg"           # Path to your favicon (replace placeholder)
+  color_scheme: "custom_dark"                  # Options: "custom_dark" or "custom_light"
+  primary_color: "#FF6B35"                     # Main brand color (links, buttons, active states)
+  secondary_color: "#004E89"                   # Accent color (hover states, badges, highlights)
+  accent_color: "#1A1A1D"                      # Dark UI elements (backgrounds, borders)
+
+# ==============================================================================
+# SOCIAL MEDIA (OPTIONAL)
+# ==============================================================================
+# Add your social media presence. Leave empty ("") if not applicable.
+
+social:
+  twitter: "PLACEHOLDER_TWITTER"               # Example: "acmecorp" (without @) or ""
+  discord_url: "PLACEHOLDER_DISCORD"           # Example: "https://discord.gg/abc123" or ""
+  stackoverflow_tag: "PLACEHOLDER_SO_TAG"      # Example: "acme" or ""
+
+# ==============================================================================
+# JEKYLL SITE SETTINGS
+# ==============================================================================
+# These settings will use the organization values defined above.
+# You typically don't need to modify these unless you want custom descriptions.
+
+title: "PLACEHOLDER_ORG_NAME Open Source Guidelines"
+email: PLACEHOLDER_EMAIL
+description: >-
+  Best practices and guidelines for PLACEHOLDER_ORG_NAME open source projects.
+  This site documents our approach to developing, publishing, and maintaining
+  open source software.
+
+baseurl: ""
+url: ""
+markdown: GFM
+permalink: /:slug
+
+# Logo and favicon (update paths if using different filenames)
+logo: "assets/logo.svg"
+favicon_ico: "assets/favicon.svg"
+
+# Footer text (customize as needed)
+footer_content: >-
+  Copyright &copy; 2026 PLACEHOLDER_ORG_NAME.
+  Documentation licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+  Template based on guidelines from <a href="https://github.com/kontent-ai/os-guidelines">Kontent.ai</a>.
+
+# ==============================================================================
+# THEME CONFIGURATION
+# ==============================================================================
+# Just the Docs theme settings - these work well out of the box
+
+remote_theme: just-the-docs/just-the-docs
+color_scheme: custom_dark                      # Must match branding.color_scheme above
+
+plugins:
+  - jekyll-feed
+
+# Search configuration
+search_enabled: true
+search:
+  heading_level: 2
+  previews: 3
+  preview_words_before: 5
+  preview_words_after: 10
+
+# Heading anchors
+heading_anchors: true
+
+# Navigation sorting
+nav_sort: case_insensitive
+
+# ==============================================================================
+# GITHUB INTEGRATION
+# ==============================================================================
+# Configure "Edit this page" links
+
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/PLACEHOLDER_GITHUB_ORG/PLACEHOLDER_REPO_NAME"
+gh_edit_branch: "main"
+gh_edit_view_mode: "edit"
+gh_edit_source: docs
+
+# ==============================================================================
+# BUILD SETTINGS
+# ==============================================================================
+# Files and directories to exclude from Jekyll processing
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - TEMPLATE_GUIDE.md
+  - _config.yml.template
+
+# ==============================================================================
+# CUSTOMIZATION NOTES
+# ==============================================================================
+#
+# Color Scheme Options:
+# - custom_dark: Dark mode theme (default)
+# - custom_light: Light mode theme
+#
+# To create additional color schemes:
+# 1. Copy docs/_sass/color_schemes/custom_dark.scss to a new file
+# 2. Customize the color variables
+# 3. Reference the new scheme name here (without .scss extension)
+#
+# Liquid Variables Available in Content:
+# - {{ site.organization.name }}
+# - {{ site.organization.shortname }}
+# - {{ site.organization.email }}
+# - {{ site.organization.github_org }}
+# - {{ site.organization.website }}
+# - {{ site.organization.docs_url }}
+# - {{ site.branding.primary_color }}
+# - {{ site.branding.secondary_color }}
+# - {{ site.branding.accent_color }}
+#
+# For more customization options, see:
+# - docs/CUSTOMIZATION.md
+# - https://just-the-docs.com/docs/configuration/

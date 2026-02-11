@@ -62,7 +62,7 @@ Configure spellcheck behavior in [cSpell.json](./cSpell.json):
 
 ## Attribution
 
-This template is based on open source guidelines originally developed by [Kontent.ai](https://github.com/kontent-ai/os-guidelines). Content has been generalized and adapted for universal use.
+This template is based on open source guidelines originally developed by me @Simply007 for [Kontent.ai](https://github.com/kontent-ai/os-guidelines). Content has been generalized and adapted for universal use.
 
 ## License
 

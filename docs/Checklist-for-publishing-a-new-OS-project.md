@@ -13,7 +13,7 @@ Before you publish any repository under your organization on GitHub, please go t
   - [Dedicate a Maintainer](#dedicate-a-maintainer)
   - [Community Profile](#community-profile)
     - [Description, Website, and Topics](#description-website-and-topics)
-    - [README (Documentation)](#readme-documentation)
+    - [README (Documentation)¨](#readme-documentation)
     - [Contributing](#contributing)
     - [License](#license)
     - [Issue \& Pull Request Templates \& Code of Conduct](#issue--pull-request-templates--code-of-conduct)
@@ -72,7 +72,9 @@ Fill in basic information about the project to make it easy to find it.
 
 Tag the repository based on the division according to [Naming conventions](./Naming-conventions.md#github-repositories).
 
-### README (Documentation)
+### README (Documentation)¨
+
+![README structure](assets/README.png)
 
 README should contain:
 

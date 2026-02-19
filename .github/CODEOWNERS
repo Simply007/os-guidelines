@@ -15,7 +15,7 @@
 # *.md @your-org/docs-team                         # File pattern ownership
 #
 # Default owner for everything in the repo:
-* @your-github-username
+* @ySimply007
 
 # Specific path examples (uncomment and customize as needed):
 # /docs/ @your-org/docs-team

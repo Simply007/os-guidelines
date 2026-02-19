@@ -8,17 +8,26 @@ nav_order: 5
 
 Before you publish any repository under your organization on GitHub, please go through this checklist and make sure the repository meets these standards.
 
-* [Repository name](#repository-name)
-* [Dedicate a maintainer](#dedicate-a-maintainer)
-* [Fulfill Community profile](#community-profile)
-* [Set up GitHub features](#github-features)
-* [Set Expectations](#set-expectations)
-* [Add badges](#add-badges)
-* [Add automatic tests](#add-automatic-tests)
-* [Set up Continuous Integration](#set-up-continuous-integration)
-* [Protect Main Branch](#protect-the-main-branch)
-* [Add collaborating teams](#add-collaborating-teams)
-* [Define release process](#define-release-process)
+- [Checklist for Publishing a New Open Source Project](#checklist-for-publishing-a-new-open-source-project)
+  - [Repository Name](#repository-name)
+  - [Dedicate a Maintainer](#dedicate-a-maintainer)
+  - [Community Profile](#community-profile)
+    - [Description, Website, and Topics](#description-website-and-topics)
+    - [README (Documentation)](#readme-documentation)
+    - [Contributing](#contributing)
+    - [License](#license)
+    - [Issue \& Pull Request Templates \& Code of Conduct](#issue--pull-request-templates--code-of-conduct)
+    - [Security Policy](#security-policy)
+  - [GitHub Features](#github-features)
+  - [Set Expectations](#set-expectations)
+  - [Add Badges](#add-badges)
+  - [Add Automatic Tests](#add-automatic-tests)
+  - [Review](#review)
+  - [Set up Continuous Integration](#set-up-continuous-integration)
+  - [Protect the Main Branch](#protect-the-main-branch)
+  - [Add Collaborating Teams](#add-collaborating-teams)
+  - [Define Release Process](#define-release-process)
+  - [Want to Make the Repo Even More Friendly?](#want-to-make-the-repo-even-more-friendly)
 
 ## Repository Name
 
@@ -68,7 +77,7 @@ Tag the repository based on the division according to [Naming conventions](./Nam
 README should contain:
 
 - Installation instructions
-- Basic demonstration of usage
+- Basic demonstration of usage a.k.a. Getting started
 - Code examples (if applicable)
 - Links to detailed documentation
 - Contact information: {{ site.organization.email }}
@@ -87,6 +96,8 @@ From the README or CONTRIBUTING files, it should be clear:
 - What kind of contributions are accepted and welcome
 - What's the definition of done (use PR templates)
 - Which communication channels should be used to get in touch with the maintainer
+
+Can be generated from [Contributor covenant](https://www.contributor-covenant.org/), [Contributing.md generator](https://contributing.md/generator/).
 
 ### License
 

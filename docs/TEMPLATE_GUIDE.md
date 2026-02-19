@@ -11,10 +11,9 @@ This guide explains the philosophy, design decisions, and best practices behind 
 ## Table of Contents
 
 1. [Design Philosophy](#design-philosophy)
-2. [What Changed from Kontent.ai Original](#what-changed-from-kontentai-original)
-3. [Customization Levels](#customization-levels)
-4. [Best Practices for Adopters](#best-practices-for-adopters)
-5. [Contributing to the Template](#contributing-to-the-template)
+2. [Customization Levels](#customization-levels)
+3. [Best Practices for Adopters](#best-practices-for-adopters)
+4. [Contributing to the Template](#contributing-to-the-template)
 
 ---
 
@@ -56,107 +55,11 @@ Rather than requiring file edits throughout the codebase, all organization-speci
 **Modular Content Structure**
 
 Documentation is organized into discrete, independent pages rather than a monolithic guide. This allows organizations to:
+
 - Remove pages that don't apply
 - Add custom pages without restructuring
 - Reorder navigation via `nav_order` front matter
 - Create nested hierarchies with parent/child relationships
-
----
-
-## What Changed from Kontent.ai Original
-
-The template is derived from Kontent.ai's internal developer resources site. Here's what changed during the templatization process:
-
-### Files Removed (7 product-specific pages)
-
-These pages were tightly coupled to Kontent.ai's specific product and couldn't be meaningfully generalized:
-
-1. **Guidelines-for-Kontent.ai-related-tools.md** - Specific to Kontent.ai's Delivery API
-2. **Guidelines-for-SDK-developers.md** - API contract documentation (product-specific)
-3. **Guidelines-for-GitHub-permissions-in-Kontent-ai-organization.md** - Internal permissions policy
-4. **New-product-feature.md** - Internal new feature workflow
-5. **Related-Resources.md** - Links to Kontent.ai-specific resources
-6. **integrations/** directory - Custom element and integration guidelines for Kontent.ai platform
-7. **examples/custom-element-sample-css/** - Product-specific code samples
-
-**Replacement**: A generic `docs/examples/example-sdk-guidelines.md` template is provided that organizations can customize for their own API requirements.
-
-### Files Kept and Generalized (3 core guidelines)
-
-These pages contain universal open source best practices and were adapted for any organization:
-
-1. **Checklist-for-publishing-a-new-OS-project.md**
-   - Removed: Kontent.ai-specific references, internal approval processes
-   - Added: Liquid variables for organization name, generic examples
-   - Result: Universal checklist for publishing open source projects
-
-2. **Naming-conventions.md**
-   - Removed: Kontent.ai naming patterns, product-specific examples
-   - Added: Placeholder examples using `{{ site.organization.shortname }}`
-   - Result: Template for establishing organizational naming standards
-
-3. **Duties-of-a-Repository-Maintainer.md**
-   - Removed: References to internal teams, specific tools
-   - Added: Generic maintenance best practices
-   - Result: Role definition applicable to any organization
-
-### CI/CD Documentation (8 tech-specific guides)
-
-These files were kept with minimal changes because they contain universal CI/CD patterns:
-
-- **ci-and-automation/ci-and-automation.md** - Overview page
-- **ci-and-automation/dotnet-GitHub-Actions-Guidelines.md** - .NET CI/CD patterns
-- **ci-and-automation/Java-GitHub-Actions-Guidelines.md** - Java CI/CD patterns
-- **ci-and-automation/JavaScript-GitHub-Actions-Guidelines.md** - JavaScript CI/CD patterns
-- **ci-and-automation/PHP-GitHub-Actions-Guidelines.md** - PHP CI/CD patterns
-- **ci-and-automation/Ruby-GitHub-Actions-Guidelines.md** - Ruby CI/CD patterns
-- **ci-and-automation/Swift-GitHub-Actions-Guidelines.md** - Swift CI/CD patterns
-
-**Changes**: Replaced package names and organization references with Liquid variables.
-
-### New Template Documentation (4 meta-guides)
-
-These files explain how to use the template itself:
-
-1. **README.md** (root) - Template introduction and quick start
-2. **docs/SETUP.md** - Deployment guide with step-by-step instructions
-3. **docs/CUSTOMIZATION.md** - Advanced customization guide
-4. **docs/TEMPLATE_GUIDE.md** - This file (philosophy and design decisions)
-
-### Configuration System (New)
-
-The original Kontent.ai site used hardcoded values throughout. The template introduces a centralized configuration system:
-
-**`docs/_config.yml` additions:**
-```yaml
-organization:
-  name: "Your Organization"
-  shortname: "yourorg"
-  email: "opensource@yourorg.com"
-  github_org: "your-org"
-  website: "https://yourorg.com"
-  docs_url: "https://docs.yourorg.com"
-
-branding:
-  logo_path: "assets/logo.svg"
-  favicon_path: "assets/favicon.svg"
-  color_scheme: "custom_dark"
-  primary_color: "#FF6B35"
-  secondary_color: "#004E89"
-  accent_color: "#1A1A1D"
-
-social:
-  twitter: "yourorg"
-  discord_url: "https://discord.gg/..."
-  stackoverflow_tag: "yourorg"
-```
-
-All content pages use these variables via Liquid templating:
-```liquid
-{{ site.organization.name }}
-{{ site.organization.email }}
-{{ site.branding.primary_color }}
-```
 
 ---
 
@@ -169,6 +72,7 @@ The template supports four levels of customization, each building on the previou
 **Goal**: Deploy the site with your organization's name and branding.
 
 **Steps**:
+
 1. Edit `docs/_config.yml` organization block
 2. Replace `docs/assets/logo.svg` and `docs/assets/favicon.svg`
 3. Enable GitHub Pages
@@ -182,6 +86,7 @@ The template supports four levels of customization, each building on the previou
 **Goal**: Add social links and customize colors to match your brand.
 
 **Steps**:
+
 1. Complete Level 1
 2. Update `branding.primary_color`, `secondary_color`, `accent_color` in `_config.yml`
 3. Add `social` block with Twitter, Discord, Stack Overflow links
@@ -196,6 +101,7 @@ The template supports four levels of customization, each building on the previou
 **Goal**: Tailor guidelines to your organization's specific needs.
 
 **Steps**:
+
 1. Complete Level 2
 2. Review all documentation pages:
    - Remove sections that don't apply
@@ -207,6 +113,7 @@ The template supports four levels of customization, each building on the previou
    - Contribution guidelines
 4. Update `cSpell.json` with your technical terms
 5. Customize CI/CD guides for your tech stack
+6. Review top level markdown files like `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, 
 
 **Result**: Guidelines that reflect your organization's open source practices.
 
@@ -217,6 +124,7 @@ The template supports four levels of customization, each building on the previou
 **Goal**: Deep customization of theme, layout, and functionality.
 
 **Steps**:
+
 1. Complete Level 3
 2. Modify SCSS files:
    - Create custom color schemes in `docs/_sass/color_schemes/`
@@ -242,6 +150,7 @@ The template supports four levels of customization, each building on the previou
 **1. Review All Content**
 
 Don't blindly deploy the template. Read through each page and ask:
+
 - Does this guideline apply to our organization?
 - Do we have additional requirements to add?
 - Are the examples relevant to our tech stack?
@@ -249,6 +158,7 @@ Don't blindly deploy the template. Read through each page and ask:
 **2. Plan Your Customization Level**
 
 Decide upfront how much you'll customize:
+
 - **Minimal**: Good for initial launch, iterate later
 - **Standard**: Recommended starting point for most organizations
 - **Content**: Do this before publicizing the site externally
@@ -257,6 +167,7 @@ Decide upfront how much you'll customize:
 **3. Set Up Local Testing**
 
 Install Ruby and Bundler to test changes locally before pushing:
+
 ```bash
 cd docs
 bundle install
@@ -286,6 +197,7 @@ For our organization's security policy, see [Security Policy](https://yourorg.co
 **3. Use Versioning for Major Changes**
 
 If you make significant updates to guidelines, consider versioning:
+
 - Add a "Last updated" date to pages
 - Use git tags for major guideline revisions
 - Document breaking changes in commit messages
@@ -293,6 +205,7 @@ If you make significant updates to guidelines, consider versioning:
 **4. Keep Examples Generic**
 
 When adding examples, use placeholders:
+
 - `yourorg` instead of actual organization name
 - `your-repo` instead of specific repository
 - `your-package` instead of package names
@@ -304,11 +217,13 @@ This makes guidelines easier to understand and follow.
 **1. Assign Ownership**
 
 Designate a team or individual responsible for:
+
 - Reviewing pull requests to documentation
 - Updating guidelines as practices evolve
 - Responding to questions and feedback
 
 Add this to `docs/_config.yml`:
+
 ```yaml
 maintainers:
   - name: "DevRel Team"
@@ -318,6 +233,7 @@ maintainers:
 **2. Schedule Regular Reviews**
 
 Set a recurring calendar reminder to review documentation:
+
 - **Quarterly**: Check for outdated links, update examples
 - **Annually**: Comprehensive review of all guidelines
 - **After major changes**: Update affected documentation immediately
@@ -325,6 +241,7 @@ Set a recurring calendar reminder to review documentation:
 **3. Enable Spell Checking**
 
 The template includes automated spell checking via GitHub Actions. Keep `cSpell.json` updated:
+
 - Add new technical terms as they arise
 - Remove obsolete terms when deprecating features
 - Review spell check failures in pull requests
@@ -332,6 +249,7 @@ The template includes automated spell checking via GitHub Actions. Keep `cSpell.
 **4. Monitor Usage**
 
 Track how developers use the documentation:
+
 - Enable Google Analytics (add tracking ID to `_config.yml`)
 - Review GitHub Pages traffic in repository Insights
 - Solicit feedback via GitHub Discussions or internal surveys
@@ -341,6 +259,7 @@ Track how developers use the documentation:
 **1. Asset Guidelines**
 
 Maintain brand consistency with proper assets:
+
 - **Logo**: Use vector format (SVG) when possible
 - **Favicon**: Provide multiple sizes (16x16, 32x32, 48x48, 64x64)
 - **Colors**: Document color codes in your brand guidelines
@@ -349,6 +268,7 @@ Maintain brand consistency with proper assets:
 **2. Color Accessibility**
 
 Test color combinations for accessibility:
+
 - Use [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
 - Target WCAG AA (4.5:1 ratio for normal text)
 - Test with color blindness simulators
@@ -356,9 +276,10 @@ Test color combinations for accessibility:
 **3. Multi-Theme Support**
 
 Consider offering both light and dark themes:
+
 ```yaml
 branding:
-  color_scheme: "custom_dark"  # or "custom_light"
+  color_scheme: "custom_dark" # or "custom_light"
 ```
 
 Users appreciate having a choice based on their environment and preferences.
@@ -368,6 +289,7 @@ Users appreciate having a choice based on their environment and preferences.
 **1. Progressive Disclosure**
 
 Structure content from general to specific:
+
 - Overview page with high-level guidelines
 - Detailed guides for specific scenarios
 - Reference documentation for technical details
@@ -375,6 +297,7 @@ Structure content from general to specific:
 **2. Consistent Terminology**
 
 Define key terms upfront and use them consistently:
+
 - SDK vs. library vs. package
 - Repository vs. project vs. codebase
 - Maintainer vs. contributor vs. owner
@@ -382,6 +305,7 @@ Define key terms upfront and use them consistently:
 **3. Clear Call-to-Actions**
 
 Every page should have a clear next step:
+
 - "Learn more in [Next Topic]"
 - "Need help? Contact us at [email]"
 - "Ready to publish? See [Checklist]"
@@ -389,6 +313,7 @@ Every page should have a clear next step:
 **4. Link Liberally**
 
 Connect related concepts with inline links:
+
 - Link to other pages in your documentation
 - Link to external resources (GitHub docs, Jekyll docs)
 - Link to your product documentation when relevant
@@ -404,12 +329,14 @@ If you've made improvements to the template that could benefit others, we encour
 **Generic, Not Specific**
 
 Contributions should be applicable to most organizations:
+
 - Universal best practices (good)
 - Product-specific workflows (not suitable)
 
 **Well-Documented**
 
 Include clear explanations:
+
 - What problem does this solve?
 - How do organizations use this feature?
 - Are there configuration options?
@@ -417,27 +344,32 @@ Include clear explanations:
 **Backward Compatible**
 
 Don't break existing adopters:
+
 - Additive changes (new pages, features) are great
 - Breaking changes (removing pages, changing config structure) require discussion
 
 ### Types of Contributions
 
 **Content Improvements**
+
 - Fix typos, grammatical errors, unclear explanations
 - Add missing best practices
 - Improve examples for clarity
 
 **New Guidelines**
+
 - Additional tech stack CI/CD guides (Go, Rust, Python, etc.)
 - New topic pages (security, accessibility, licensing)
 - Template variations for different documentation needs
 
 **Technical Enhancements**
+
 - Improved styling and accessibility
 - New Jekyll features or plugins
 - Better GitHub Actions workflows
 
 **Documentation**
+
 - Expand SETUP.md, CUSTOMIZATION.md, or this guide
 - Add troubleshooting tips
 - Create video tutorials or walkthroughs
@@ -463,6 +395,7 @@ We follow the [Contributor Covenant Code of Conduct](https://www.contributor-cov
 **Alternatives considered**: Hugo, Gatsby, Docusaurus, MkDocs
 
 **Why Jekyll won**:
+
 - Native GitHub Pages support (zero configuration)
 - Mature theme ecosystem (Just the Docs is excellent)
 - Ruby is widely available (comes pre-installed on macOS)
@@ -470,6 +403,7 @@ We follow the [Contributor Covenant Code of Conduct](https://www.contributor-cov
 - No JavaScript build step required
 
 **Trade-offs**:
+
 - Slower build times than Hugo (not an issue for documentation sites)
 - Ruby dependency (vs. Go, Node.js)
 - Less modern than Gatsby/Docusaurus (but simpler)
@@ -479,6 +413,7 @@ We follow the [Contributor Covenant Code of Conduct](https://www.contributor-cov
 **Alternatives considered**: Minimal Mistakes, Primer, Tale
 
 **Why Just the Docs won**:
+
 - Built-in search (no external dependencies)
 - Excellent navigation system (parent/child, ordering)
 - Clean, professional design
@@ -486,6 +421,7 @@ We follow the [Contributor Covenant Code of Conduct](https://www.contributor-cov
 - Active maintenance and community
 
 **Trade-offs**:
+
 - Less visual flair than some themes (but more professional)
 - Limited layout variations (but consistent experience)
 
@@ -494,12 +430,14 @@ We follow the [Contributor Covenant Code of Conduct](https://www.contributor-cov
 **Alternative approach**: Hardcoded values, separate data files
 
 **Why centralized config won**:
+
 - Single source of truth for organization info
 - Clear onboarding (edit one file to deploy)
 - Easy to validate (YAML linting)
 - Familiar to Jekyll users
 
 **Trade-offs**:
+
 - Large `_config.yml` file (but well-organized)
 - Requires Jekyll restart for changes (acceptable)
 
@@ -508,11 +446,13 @@ We follow the [Contributor Covenant Code of Conduct](https://www.contributor-cov
 **Alternative approach**: Provide multiple variations (SaaS, Enterprise, etc.)
 
 **Why generic won**:
+
 - Easier to maintain (single codebase)
 - Forces universal best practices
 - Reduces decision fatigue for adopters
 
 **Trade-offs**:
+
 - Less immediately applicable (requires customization)
 - More work for adopters to tailor content
 
@@ -523,11 +463,13 @@ We follow the [Contributor Covenant Code of Conduct](https://www.contributor-cov
 ### Version History
 
 **v1.0** (Initial release)
+
 - Converted from Kontent.ai internal docs
 - Added configuration system
 - Created setup and customization guides
 
 **Future Plans**:
+
 - Additional CI/CD guides (Python, Go, Rust)
 - GitHub Actions workflow templates
 - Interactive configuration wizard
@@ -538,12 +480,14 @@ We follow the [Contributor Covenant Code of Conduct](https://www.contributor-cov
 We continuously improve the template based on adopter feedback. Common requests:
 
 **Most requested features**:
+
 1. More CI/CD tech stack guides
 2. Localization/internationalization support
 3. Additional theme variations
 4. Integration with external tools (Notion, Confluence)
 
 **Known limitations**:
+
 1. Jekyll build time on large sites (workaround: use incremental builds)
 2. Search quality on very large sites (consider external search service)
 3. Limited mobile optimization (theme improvement needed)
@@ -553,14 +497,17 @@ We continuously improve the template based on adopter feedback. Common requests:
 If you've deployed the template, here's how to stay current:
 
 **Watch the Repository**
+
 - Click "Watch" on the template repo
 - Choose "Custom" > "Releases" to get notified of new versions
 
 **Review Changelogs**
+
 - Check release notes before updating
 - Test updates in a separate branch first
 
 **Selective Updates**
+
 - You don't need to adopt every change
 - Cherry-pick improvements relevant to your organization
 - Maintain your customizations
@@ -572,6 +519,7 @@ If you've deployed the template, here's how to stay current:
 The Open Source Guidelines template is designed to be flexible, maintainable, and professional. By understanding its design philosophy and best practices, you can effectively deploy and customize it for your organization.
 
 Key takeaways:
+
 - Start with minimal customization, iterate based on feedback
 - Keep content generic but add organization-specific details where needed
 - Maintain documentation as your open source program evolves

@@ -36,7 +36,6 @@ See [SETUP.md](docs/SETUP.md) for detailed deployment instructions.
 - **[SETUP.md](docs/SETUP.md)** - Step-by-step deployment guide
 - **[CUSTOMIZATION.md](docs/CUSTOMIZATION.md)** - Advanced theming and content customization
 - **[TEMPLATE_GUIDE.md](docs/TEMPLATE_GUIDE.md)** - Design philosophy and content decisions
-- **[PRD.md](PRD.md)** - Complete product requirements and roadmap
 
 ## Customization Levels
 

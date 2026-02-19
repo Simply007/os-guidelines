@@ -1,77 +1,65 @@
----
 name: Bug Report
-about: Create a report to help us improve
-title: "[BUG] "
-labels: ["bug"]
+description: File a bug report.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+projects: ["octo-org/1", "octo-org/44"]
+assignees:
+  - octocat
+type: bug
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report! Please do not report security vulnerabilities here. Instead, email them to ondrej@chrastina.dev.
-
-  - type: textarea
-    id: bug-description
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: contact
     attributes:
-      label: "Describe the bug"
-      description: "A clear and concise description of what the bug is."
-      placeholder: "I am experiencing a problem where [...]"
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
     validations:
       required: true
-
-  - type: textarea
-    id: reproduction
+  - type: dropdown
+    id: version
     attributes:
-      label: "Steps to reproduce"
-      description: "Please provide detailed steps for reproducing the issue."
-      placeholder: |
-        1. Go to '...'
-        2. Click on '....'
-        3. Scroll down to '....'
-        4. See error
-    validations:
-      required: true
-
-  - type: textarea
-    id: expected-behavior
-    attributes:
-      label: "Expected behavior"
-      description: "A clear and concise description of what you expected to happen."
-    validations:
-      required: true
-
-  - type: textarea
-    id: actual-behavior
-    attributes:
-      label: "Actual behavior"
-      description: "A clear and concise description of what actually happened."
-    validations:
-      required: true
-
-  - type: textarea
-    id: environment
-    attributes:
-      label: "Your environment"
-      description: "Please provide your OS, Node.js version, and any other relevant information."
-      placeholder: |
-        - OS: [e.g. macOS, Windows, Linux]
-        - Node.js version: [e.g. 18.x]
-        - Browser (if applicable): [e.g. Chrome, Safari]
-    validations:
-      required: true
-
-  - type: textarea
-    id: additional-context
-    attributes:
-      label: "Additional context"
-      description: "Add any other context, stack traces, or screenshots about the problem here."
-
-  - type: checkboxes
-    id: acknowledgements
-    attributes:
-      label: "Acknowledgements"
-      description: "Please confirm the following."
+      label: Version
+      description: What version of our software are you running?
       options:
-        - label: "I have searched the existing issues and this is not a duplicate."
-          required: true
-        - label: "I am not reporting a security vulnerability."
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com).
+      options:
+        - label: I agree to follow this project's Code of Conduct
           required: true

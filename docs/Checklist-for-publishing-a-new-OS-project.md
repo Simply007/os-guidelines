@@ -18,6 +18,7 @@ Before you publish any repository under your organization on GitHub, please go t
     - [License](#license)
     - [Issue \& Pull Request Templates \& Code of Conduct](#issue--pull-request-templates--code-of-conduct)
     - [Security Policy](#security-policy)
+    - [DEVELOPMENT.md](#developmentmd)
   - [GitHub Features](#github-features)
   - [Set Expectations](#set-expectations)
   - [Add Badges](#add-badges)
@@ -149,6 +150,14 @@ with details. Do not create a public GitHub issue.
 
 We will respond within 48 hours and provide a timeline for fixes.
 ```
+
+### DEVELOPMENT.md
+
+> Optional, is short, can be part of the README.
+
+This document describes the process for running this application on your local computer.
+
+You can inspire by [GitHub's docs DEVELOPMENT.md file](https://github.com/github/docs/blob/main/contributing/development.md).
 
 ## GitHub Features
 

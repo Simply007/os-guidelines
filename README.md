@@ -2,6 +2,8 @@
 
 A turnkey Jekyll documentation template for establishing professional open source program guidelines. Deploy comprehensive OSS best practices to your organization in under 15 minutes.
 
+![Screnshot of the template visual](./assets/screenshot.png)
+
 ## Features
 
 - **Configuration-Driven White-Labeling**: Customize organization name, colors, and logos in one YAML file
